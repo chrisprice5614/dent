@@ -5,10 +5,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, hr, p, bl
     outline: 0;
     vertical-align: baseline;
 
-    font-family: "Open Sans", sans-serif;
+    font-family: "ofelia-text", sans-serif;
     font-weight: 400;
     font-style: normal;
     line-height: 1.4em;
+}
+
+ul, li{
+    line-height: 2em;
 }
 
 :root{
