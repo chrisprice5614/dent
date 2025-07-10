@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="https://use.typekit.net/asw3dis.css">
 </head>
 <body>
     <div class="gradient-top"></div>
@@ -26,25 +27,24 @@
     <div class="grid">
         <div>
             <div style="text-align: center;">
-                <video loop muted autoplay class="vid">
+                <video muted class="vid" id="video-player" style="width: 60%; aspect-ratio: 1;">
                     <source src="/img/vid.mp4"type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
         </div>
         <div>
-            <div class="grid">
-                <div style="text-align: center; margin-bottom: 24px">
-                    <img src="/img/dent1.jpg" alt="" class="photo">
-                </div>
-                <div style="text-align: center;">
-                    <img src="/img/dent2.jpg" alt="" class="photo">
-                </div>
-                <div style="text-align: center;">
-                    <img src="/img/dent3.jpg" alt="" class="photo">
-                </div>
-                <div style="text-align: center;">
-                    <img src="/img/dent4.jpg" alt="" class="photo">
+            <div style="color: white; text-shadow: 0px 0px 32px rgba(0,0,0,1), 0px 0px 24px rgba(0,0,0,1), 0px 0px 20px rgba(0,0,0,1), 0px 0px 16px rgba(0,0,0,1), 0px 0px 16px rgba(0,0,0,1); box-shadow: 0px 0px 64px rgba(0,0,0,0.3); background-color: rgba(0,0,0,0.2);">
+                <h2 style="text-align: center; font-weight: 700; font-style: italic; font-size: 4.25rem;">ADDITIONAL SERVICES</h2>
+                <div style="padding-left: 25%">
+                    <br>
+                    <ul style="font-size: 2.25rem; font-weight: 700;">
+                        <li style="font-weight: 700;">Vehicle Accessories</li>
+                        <li style="font-weight: 700;">Headlight Restoration</li>
+                        <li style="font-weight: 700;">Windshield Rock-Chip Repair</li>
+                        <li style="font-weight: 700;">Minor Paint Touch Up</li>
+                        <li style="font-weight: 700;">Quick Touch Detail</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -52,3 +52,26 @@
 </body>
 </html>
 
+<script>
+    const videoSources = [
+        "/img/vid3.mp4",
+        "/img/vid.mp4"
+    ];
+
+    const videoPlayer = document.getElementById("video-player");
+    let currentIndex = 0;
+
+    function playVideo(index) {
+        videoPlayer.src = videoSources[index];
+        videoPlayer.load();
+        videoPlayer.play();
+    }
+
+    videoPlayer.addEventListener("ended", () => {
+        currentIndex = (currentIndex + 1) % videoSources.length;
+        playVideo(currentIndex);
+    });
+
+    // Start with the first video
+    playVideo(currentIndex);
+</script>
